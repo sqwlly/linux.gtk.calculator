@@ -61,8 +61,8 @@ public partial class MainWindow
 	{
 		global::Stetic.Gui.Initialize(this);
 		// Widget MainWindow
-		this.Name = "MainWindow";
-		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
+		this.Name = "Calculator";
+		this.Title = global::Mono.Unix.Catalog.GetString("Calculator");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox6 = new global::Gtk.VBox();
