@@ -1,0 +1,6 @@
+/home/sqwlly/Projects/linux.gtk.calculator/linux.gtk.calculator/bin/Debug/linux.gtk.calculator.exe
+/home/sqwlly/Projects/linux.gtk.calculator/linux.gtk.calculator/bin/Debug/linux.gtk.calculator.pdb
+/home/sqwlly/Projects/linux.gtk.calculator/linux.gtk.calculator/obj/x86/Debug/linux.gtk.calculator.csprojResolveAssemblyReference.cache
+/home/sqwlly/Projects/linux.gtk.calculator/linux.gtk.calculator/obj/x86/Debug/linux.gtk.calculator.csproj.CoreCompileInputs.cache
+/home/sqwlly/Projects/linux.gtk.calculator/linux.gtk.calculator/obj/x86/Debug/linux.gtk.calculator.exe
+/home/sqwlly/Projects/linux.gtk.calculator/linux.gtk.calculator/obj/x86/Debug/linux.gtk.calculator.pdb
