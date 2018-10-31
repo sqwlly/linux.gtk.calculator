@@ -5,6 +5,5 @@
 * 所有运算基于中缀表达式
 
 
-![image](https://github.com/sqwlly/linux.gtk.calculator/blob/master/Image/calculator.png)
+![image](https://github.com/sqwlly/linux.gtk.calculator/blob/master/Image/cal01.jpg)
 
-![image](https://github.com/sqwlly/linux.gtk.calculator/blob/master/Image/calculator1.png)

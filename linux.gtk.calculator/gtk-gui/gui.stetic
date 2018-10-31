@@ -6,7 +6,7 @@
   <import>
     <widget-library name="../bin/Debug/linux.gtk.calculator.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="383 413">
+  <widget class="Gtk.Window" id="MainWindow" design-size="396 506">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -20,17 +20,26 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.TextView" id="textview1">
+              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
                 <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Editable">False</property>
-                <property name="CursorVisible">False</property>
-                <property name="Text" translatable="yes" />
-                <property name="Justification">Right</property>
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.TextView" id="textview1">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="ShowScrollbars">True</property>
+                    <property name="Editable">False</property>
+                    <property name="CursorVisible">False</property>
+                    <property name="Text" translatable="yes" />
+                    <property name="Justification">Right</property>
+                    <property name="LeftMargin">15</property>
+                  </widget>
+                </child>
               </widget>
               <packing>
                 <property name="Position">0</property>
                 <property name="AutoSize">True</property>
+                <property name="Padding">10</property>
               </packing>
             </child>
             <child>
@@ -40,7 +49,7 @@
                 <child>
                   <widget class="Gtk.Button" id="buttonClear">
                     <property name="MemberName" />
-                    <property name="WidthRequest">185</property>
+                    <property name="WidthRequest">175</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -53,12 +62,14 @@
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
+                    <property name="Padding">10</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="Gtk.Button" id="buttonDel">
                     <property name="MemberName" />
-                    <property name="WidthRequest">185</property>
+                    <property name="WidthRequest">175</property>
+                    <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">DEL</property>
@@ -66,11 +77,11 @@
                     <signal name="Clicked" handler="OnButtonDelClicked" />
                   </widget>
                   <packing>
-                    <property name="PackType">End</property>
                     <property name="Position">1</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
+                    <property name="Padding">10</property>
                   </packing>
                 </child>
               </widget>
@@ -101,7 +112,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button1">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -112,6 +123,8 @@
                   <packing>
                     <property name="TopAttach">2</property>
                     <property name="BottomAttach">3</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -126,7 +139,8 @@
                 <child>
                   <widget class="Gtk.Button" id="button2">
                     <property name="MemberName">50</property>
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
+                    <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">2</property>
@@ -138,6 +152,8 @@
                     <property name="BottomAttach">3</property>
                     <property name="LeftAttach">1</property>
                     <property name="RightAttach">2</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -152,7 +168,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button3">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -165,6 +181,8 @@
                     <property name="BottomAttach">3</property>
                     <property name="LeftAttach">2</property>
                     <property name="RightAttach">3</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -179,7 +197,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button4">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -190,6 +208,8 @@
                   <packing>
                     <property name="TopAttach">1</property>
                     <property name="BottomAttach">2</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -204,7 +224,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button5">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -217,6 +237,8 @@
                     <property name="BottomAttach">2</property>
                     <property name="LeftAttach">1</property>
                     <property name="RightAttach">2</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">4</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -231,7 +253,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button6">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -244,6 +266,8 @@
                     <property name="BottomAttach">2</property>
                     <property name="LeftAttach">2</property>
                     <property name="RightAttach">3</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -258,6 +282,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button7">
                     <property name="MemberName" />
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -266,6 +291,8 @@
                     <signal name="Clicked" handler="OnButton7Clicked" />
                   </widget>
                   <packing>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -280,6 +307,8 @@
                 <child>
                   <widget class="Gtk.Button" id="button8">
                     <property name="MemberName" />
+                    <property name="WidthRequest">75</property>
+                    <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">8</property>
@@ -289,6 +318,8 @@
                   <packing>
                     <property name="LeftAttach">1</property>
                     <property name="RightAttach">2</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -303,7 +334,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button9">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -314,6 +345,8 @@
                   <packing>
                     <property name="LeftAttach">2</property>
                     <property name="RightAttach">3</property>
+                    <property name="XPadding">10</property>
+                    <property name="YPadding">5</property>
                     <property name="AutoSize">True</property>
                     <property name="XOptions">Fill</property>
                     <property name="YOptions">Fill</property>
@@ -334,71 +367,97 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.VBox" id="vbox7">
+              <widget class="Gtk.HPaned" id="hpaned1">
                 <property name="MemberName" />
-                <property name="WidthRequest">50</property>
-                <property name="HeightRequest">50</property>
-                <property name="Spacing">6</property>
+                <property name="CanFocus">True</property>
                 <child>
-                  <widget class="Gtk.Button" id="buttonMul">
+                  <widget class="Gtk.Fixed" id="fixed1">
                     <property name="MemberName" />
-                    <property name="WidthRequest">50</property>
-                    <property name="HeightRequest">50</property>
-                    <property name="CanFocus">True</property>
-                    <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">*</property>
-                    <property name="UseUnderline">True</property>
-                    <signal name="Clicked" handler="OnButtonMulClicked" />
+                    <property name="HasWindow">False</property>
                   </widget>
                   <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
+                    <property name="Resize">False</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Button" id="buttonDiv">
+                  <widget class="Gtk.HBox" id="hbox3">
                     <property name="MemberName" />
-                    <property name="WidthRequest">50</property>
-                    <property name="HeightRequest">50</property>
-                    <property name="CanFocus">True</property>
-                    <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">/</property>
-                    <property name="UseUnderline">True</property>
-                    <signal name="Clicked" handler="OnButtonDivClicked" />
+                    <property name="Spacing">6</property>
+                    <child>
+                      <widget class="Gtk.VBox" id="vbox4">
+                        <property name="MemberName" />
+                        <property name="Spacing">6</property>
+                        <child>
+                          <widget class="Gtk.Button" id="buttonDiv">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">75</property>
+                            <property name="HeightRequest">50</property>
+                            <property name="CanFocus">True</property>
+                            <property name="Type">TextOnly</property>
+                            <property name="Label" translatable="yes">/</property>
+                            <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="OnButtonDivClicked" />
+                          </widget>
+                          <packing>
+                            <property name="Position">0</property>
+                            <property name="AutoSize">True</property>
+                            <property name="Expand">False</property>
+                            <property name="Fill">False</property>
+                            <property name="Padding">5</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Button" id="buttonMul">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">75</property>
+                            <property name="HeightRequest">50</property>
+                            <property name="CanFocus">True</property>
+                            <property name="Type">TextOnly</property>
+                            <property name="Label" translatable="yes">*</property>
+                            <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="OnButtonMulClicked" />
+                          </widget>
+                          <packing>
+                            <property name="Position">1</property>
+                            <property name="AutoSize">True</property>
+                            <property name="Expand">False</property>
+                            <property name="Fill">False</property>
+                            <property name="Padding">5</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Button" id="buttonSub">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">75</property>
+                            <property name="HeightRequest">50</property>
+                            <property name="CanFocus">True</property>
+                            <property name="Type">TextOnly</property>
+                            <property name="Label" translatable="yes">-</property>
+                            <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="OnButtonSubClicked" />
+                          </widget>
+                          <packing>
+                            <property name="Position">2</property>
+                            <property name="AutoSize">True</property>
+                            <property name="Expand">False</property>
+                            <property name="Fill">False</property>
+                            <property name="Padding">5</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Position">0</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
                   </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.Button" id="buttonSub">
-                    <property name="MemberName" />
-                    <property name="WidthRequest">50</property>
-                    <property name="HeightRequest">50</property>
-                    <property name="CanFocus">True</property>
-                    <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">-</property>
-                    <property name="UseUnderline">True</property>
-                    <signal name="Clicked" handler="OnButtonSubClicked" />
-                  </widget>
-                  <packing>
-                    <property name="Position">2</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
                 </child>
               </widget>
               <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
@@ -420,7 +479,7 @@
                 <child>
                   <widget class="Gtk.Button" id="button">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -433,12 +492,13 @@
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
+                    <property name="Padding">5</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="Gtk.Button" id="buttonDot">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">50</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -451,12 +511,13 @@
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
+                    <property name="Padding">15</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="Gtk.Button" id="button11">
                     <property name="MemberName" />
-                    <property name="WidthRequest">105</property>
+                    <property name="WidthRequest">75</property>
                     <property name="HeightRequest">0</property>
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
@@ -465,10 +526,12 @@
                     <signal name="Clicked" handler="OnButton11Clicked" />
                   </widget>
                   <packing>
+                    <property name="PackType">End</property>
                     <property name="Position">2</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
+                    <property name="Padding">5</property>
                   </packing>
                 </child>
               </widget>
@@ -477,12 +540,13 @@
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
+                <property name="Padding">5</property>
               </packing>
             </child>
             <child>
               <widget class="Gtk.Button" id="buttonPlus">
                 <property name="MemberName" />
-                <property name="WidthRequest">50</property>
+                <property name="WidthRequest">75</property>
                 <property name="HeightRequest">50</property>
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -495,6 +559,7 @@
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
+                <property name="Padding">5</property>
               </packing>
             </child>
           </widget>
