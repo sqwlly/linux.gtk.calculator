@@ -4,7 +4,7 @@
       <File FileName="linux.gtk.calculator/Program.cs" Line="13" Column="1" />
       <File FileName="linux.gtk.calculator/gtk-gui/MainWindow.cs" Line="1" Column="1" />
       <File FileName="linux.gtk.calculator/Calculator.cs" Line="6" Column="6" />
-      <File FileName="linux.gtk.calculator/MainWindow.cs" Line="152" Column="9" />
+      <File FileName="linux.gtk.calculator/MainWindow.cs" Line="152" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

@@ -133,7 +133,12 @@ public partial class MainWindow : Gtk.Window
         if (maxL > 12) maxL = 12; //限制输出答案的长度
         if(top_num > 1) //数字栈中剩余的一个元素就是答案，将其插入最后一行
             textview1.Buffer.InsertWithTags(ref iter, "= "+num[top_num - 1].ToString().Substring(0,maxL)+"\n------------------\n", getTag(25));
-        //textview1.ScrollToIter(textview1.Buffer.EndIter, 0, true, 0, 0);
+    }
+
+    //滚轮滚动到底部
+    protected void ScrollToEnd(object sender, Gtk.SizeAllocatedArgs e)
+    {
+        textview1.ScrollToIter(textview1.Buffer.EndIter, 0, false, 0, 0);   
     }
 
     protected void OnButton1Clicked(object sender, EventArgs e)

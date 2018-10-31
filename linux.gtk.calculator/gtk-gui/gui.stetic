@@ -6,10 +6,12 @@
   <import>
     <widget-library name="../bin/Debug/linux.gtk.calculator.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="396 506">
+  <widget class="Gtk.Window" id="MainWindow" design-size="396 620">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="Title" translatable="yes">Calculator</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox6">
@@ -23,9 +25,12 @@
               <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
                 <property name="MemberName" />
                 <property name="ShadowType">In</property>
+                <property name="WindowPlacement">BottomRight</property>
                 <child>
                   <widget class="Gtk.TextView" id="textview1">
                     <property name="MemberName" />
+                    <property name="WidthRequest">380</property>
+                    <property name="HeightRequest">200</property>
                     <property name="CanFocus">True</property>
                     <property name="ShowScrollbars">True</property>
                     <property name="Editable">False</property>

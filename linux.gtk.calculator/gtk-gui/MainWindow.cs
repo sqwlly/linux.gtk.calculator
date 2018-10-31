@@ -70,8 +70,10 @@ public partial class MainWindow
 		global::Stetic.Gui.Initialize(this);
 		// Widget MainWindow
 		this.Name = "MainWindow";
-		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
+		this.Title = global::Mono.Unix.Catalog.GetString("Calculator");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		this.Resizable = false;
+		this.AllowGrow = false;
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox6 = new global::Gtk.VBox();
 		this.vbox6.Name = "vbox6";
@@ -84,8 +86,11 @@ public partial class MainWindow
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+		this.GtkScrolledWindow.WindowPlacement = ((global::Gtk.CornerType)(3));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
 		this.textview1 = new global::Gtk.TextView();
+		this.textview1.WidthRequest = 380;
+		this.textview1.HeightRequest = 200;
 		this.textview1.CanFocus = true;
 		this.textview1.Name = "textview1";
 		this.textview1.Editable = false;
@@ -458,7 +463,7 @@ public partial class MainWindow
 			this.Child.ShowAll();
 		}
 		this.DefaultWidth = 396;
-		this.DefaultHeight = 506;
+		this.DefaultHeight = 620;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.buttonClear.Clicked += new global::System.EventHandler(this.OnButtonClearClicked);
@@ -479,5 +484,6 @@ public partial class MainWindow
 		this.buttonDot.Clicked += new global::System.EventHandler(this.OnButtonDotClicked);
 		this.button11.Clicked += new global::System.EventHandler(this.OnButton11Clicked);
 		this.buttonPlus.Clicked += new global::System.EventHandler(this.OnButtonPlusClicked);
+        this.textview1.SizeAllocated += new global::Gtk.SizeAllocatedHandler(this.ScrollToEnd);
 	}
 }
