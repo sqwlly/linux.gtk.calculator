@@ -69,7 +69,8 @@ public partial class MainWindow : Gtk.Window
         if (idx == -1) idx = 0;
         string express = textview1.Buffer.Text.Substring(idx);
         if (express[0] == '\n') express = express.Substring(1); //满足第一个字符可以是负号
-        top_num = 1; top_op = 1;
+        top_num = 2; top_op = 1;
+        num[1] = 0;
         int isMinus = 1;
         for (int i = 0; i < express.Length;)
         {
@@ -205,7 +206,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonPlusClicked(object sender, EventArgs e)
     {
         string t = textview1.Buffer.Text;
-        if (t == "" || t[t.Length-1] == '\n') return; //防止在分割线处添加
+        if (t == "" || t[t.Length-1] == '\n' || t[t.Length - 1] == '.') return; //防止在分割线处添加
         if (!char.IsDigit(t[t.Length - 1]))
             t = t.Substring(0, t.Length - 1);
         textview1.Buffer.Text = "";  
@@ -217,6 +218,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonSubClicked(object sender, EventArgs e)
     {
         string t = textview1.Buffer.Text;
+        if (t != "" && t[t.Length - 1] == '.') return;
         if (t == "" || t[t.Length - 1] == '\n') t += "\n";　//防止将减号添加到分割线末尾，因此要加一个回车
         if (!char.IsDigit(t[t.Length - 1]))
             t = t.Substring(0, t.Length - 1);
@@ -229,7 +231,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonDivClicked(object sender, EventArgs e)
     {
         string t = textview1.Buffer.Text;
-        if (t == "" || t[t.Length-1] == '\n') return; //防止在分割线处添加
+        if (t == "" || t[t.Length-1] == '\n' || t[t.Length - 1] == '.') return; //防止在分割线处添加
         if (!char.IsDigit(t[t.Length - 1]))
             t = t.Substring(0, t.Length - 1);
         textview1.Buffer.Text = "";
@@ -241,7 +243,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonMulClicked(object sender, EventArgs e)
     {
         string t = textview1.Buffer.Text;
-        if (t == "" || t[t.Length-1] == '\n') return; //防止在分割线处添加
+        if (t == "" || t[t.Length-1] == '\n' || t[t.Length - 1] == '.') return; //防止在分割线处添加
         if (!char.IsDigit(t[t.Length - 1]))
             t = t.Substring(0, t.Length - 1);
         textview1.Buffer.Text = "";
@@ -314,5 +316,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonClearClicked(object sender, EventArgs e)
     {
         textview1.Buffer.Text = "";
+        var iter = textview1.Buffer.EndIter;
+        textview1.Buffer.InsertWithTags(ref iter, "0", getTag(15));
     }
 }

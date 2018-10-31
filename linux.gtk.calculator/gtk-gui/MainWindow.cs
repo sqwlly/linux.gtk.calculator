@@ -484,6 +484,5 @@ public partial class MainWindow
 		this.buttonDot.Clicked += new global::System.EventHandler(this.OnButtonDotClicked);
 		this.button11.Clicked += new global::System.EventHandler(this.OnButton11Clicked);
 		this.buttonPlus.Clicked += new global::System.EventHandler(this.OnButtonPlusClicked);
-        this.textview1.SizeAllocated += new global::Gtk.SizeAllocatedHandler(this.ScrollToEnd);
 	}
 }
