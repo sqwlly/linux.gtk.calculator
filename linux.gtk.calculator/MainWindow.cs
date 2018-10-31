@@ -65,9 +65,10 @@ public partial class MainWindow : Gtk.Window
     */
     protected void solve()
     {
-        int idx = textview1.Buffer.Text.Substring(0,textview1.Buffer.Text.Length-1).LastIndexOf('\n');
+        int idx = textview1.Buffer.Text.Substring(0,textview1.Buffer.Text.Length - 1).LastIndexOf('\n');
         if (idx == -1) idx = 0;
-        string express = textview1.Buffer.Text.Substring(idx);  // + - 
+        string express = textview1.Buffer.Text.Substring(idx);
+        if (express[0] == '\n') express = express.Substring(1); //满足第一个字符可以是负号
         top_num = 1; top_op = 1;
         int isMinus = 1;
         for (int i = 0; i < express.Length;)
@@ -126,11 +127,11 @@ public partial class MainWindow : Gtk.Window
             calculate(op[--top_op]);
         }
         var iter1 = textview1.Buffer.EndIter;
-        textview1.Buffer.InsertWithTags(ref iter1, "\n", getTag(1));
-        var iter = textview1.Buffer.GetIterAtLine(textview1.Buffer.LineCount);
+        textview1.Buffer.InsertWithTags(ref iter1, "\n", getTag(1));　//从末尾插入换行
+        var iter = textview1.Buffer.GetIterAtLine(textview1.Buffer.LineCount); //再获取最后一行
         int maxL = num[top_num - 1].ToString().Length;
         if (maxL > 12) maxL = 12; //限制输出答案的长度
-        if(top_num > 1) //数字栈中剩余的一个元素就是答案
+        if(top_num > 1) //数字栈中剩余的一个元素就是答案，将其插入最后一行
             textview1.Buffer.InsertWithTags(ref iter, "= "+num[top_num - 1].ToString().Substring(0,maxL)+"\n------------------\n", getTag(25));
         //textview1.ScrollToIter(textview1.Buffer.EndIter, 0, true, 0, 0);
     }
@@ -211,7 +212,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonSubClicked(object sender, EventArgs e)
     {
         string t = textview1.Buffer.Text;
-        if (t == "" || t[t.Length-1] == '\n') return; //防止在分割线处添加
+        if (t == "" || t[t.Length - 1] == '\n') t += "\n";　//防止将减号添加到分割线末尾，因此要加一个回车
         if (!char.IsDigit(t[t.Length - 1]))
             t = t.Substring(0, t.Length - 1);
         textview1.Buffer.Text = "";
@@ -257,6 +258,7 @@ public partial class MainWindow : Gtk.Window
     {
         string t = textview1.Buffer.Text;
         bool judge = true;
+
         //防止多次加点，如2.2.2 
         for (int i = t.Length - 1;  i >= 0 && !isOper(t[i]); --i){
             if (t[i] == '.')
@@ -265,6 +267,7 @@ public partial class MainWindow : Gtk.Window
                 break;
             }
         }
+
         if (t == "" || !judge) return;
         if (char.IsDigit(t[t.Length - 1]))　//只有前一个字符是数字才可以加点
         {
@@ -285,14 +288,18 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonDelClicked(object sender, EventArgs e)
     {
         string t = textview1.Buffer.Text;
+        if (t == "") return;
         char[] oper = { '+', '-', '*', '/' };
         bool judge = false;
-        if (char.IsDigit(t[t.Length - 1])) judge = true;
+
+        // 如果最后一个字符是操作符或者数字都可以删掉
+        if (char.IsDigit(t[t.Length - 1])) judge = true;　
         foreach(char i in oper){
             if (i == t[t.Length - 1]) judge = true;
         }
-        if (t == "" || !judge) return;
-        t = t.Substring(0, t.Length - 1);
+
+        if (!judge) return;
+        t = t.Substring(0, t.Length - 1); //删掉最后一个字符
         textview1.Buffer.Text = "";
         var iter = textview1.Buffer.EndIter;
         textview1.Buffer.InsertWithTags(ref iter, t, getTag(15));
@@ -302,10 +309,5 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonClearClicked(object sender, EventArgs e)
     {
         textview1.Buffer.Text = "";
-    }
-
-    protected void OnDrawingarea1DragBegin(object o, DragBeginArgs args)
-    {
-        
     }
 }
