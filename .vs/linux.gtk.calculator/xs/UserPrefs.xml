@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="linux.gtk.calculator/MainWindow.cs">
     <Files>
       <File FileName="linux.gtk.calculator/Program.cs" Line="13" Column="1" />
-      <File FileName="linux.gtk.calculator/gtk-gui/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="linux.gtk.calculator/gtk-gui/MainWindow.cs" Line="487" Column="91" />
       <File FileName="linux.gtk.calculator/Calculator.cs" Line="6" Column="6" />
-      <File FileName="linux.gtk.calculator/MainWindow.cs" Line="152" Column="6" />
+      <File FileName="linux.gtk.calculator/MainWindow.cs" Line="238" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

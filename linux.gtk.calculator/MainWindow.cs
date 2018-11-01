@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Gtk;
 
 public partial class MainWindow : Gtk.Window
@@ -19,7 +20,7 @@ public partial class MainWindow : Gtk.Window
     /* 模拟操作符栈 */
     char[] op = new char[20];
     int top_num = 1, top_op = 1;
-
+    Stack Stack = new Stack();
     /* 根据操作符来计算 */
     protected void calculate(char _operator)
     {
@@ -296,7 +297,7 @@ public partial class MainWindow : Gtk.Window
     {
         string t = textview1.Buffer.Text;
         if (t == "") return;
-        char[] oper = { '+', '-', '*', '/' };
+        char[] oper = { '+', '-', '*', '/' }; 
         bool judge = false;
 
         // 如果最后一个字符是操作符或者数字都可以删掉

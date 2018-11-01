@@ -374,7 +374,6 @@
             <child>
               <widget class="Gtk.HPaned" id="hpaned1">
                 <property name="MemberName" />
-                <property name="CanFocus">True</property>
                 <child>
                   <widget class="Gtk.Fixed" id="fixed1">
                     <property name="MemberName" />
