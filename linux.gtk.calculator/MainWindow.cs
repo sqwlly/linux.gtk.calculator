@@ -84,10 +84,16 @@ public partial class MainWindow : Gtk.Window
     */
     protected void solve()
     {
-        int idx = textview1.Buffer.Text.Substring(0,textview1.Buffer.Text.Length - 1).LastIndexOf('\n');
+        TextBuffer str = textview1.Buffer;
+
+        //获取最后一行
+        string express = textview1.Buffer.GetText(textview1.Buffer.GetIterAtLine(str.LineCount), str.EndIter, false);
+
+        /*int idx = textview1.Buffer.Text.Substring(0,textview1.Buffer.Text.Length - 1).LastIndexOf('\n');
         if (idx == -1) idx = 0;
         string express = textview1.Buffer.Text.Substring(idx);
-        if (express[0] == '\n') express = express.Substring(1); //满足第一个字符可以是负号
+        if (express[0] == '\n') express = express.Substring(1); //满足第一个字符可以是负号 */
+
         top_num = 2; top_op = 1;
         num[1] = 0;
         int isMinus = 1;
@@ -158,10 +164,8 @@ public partial class MainWindow : Gtk.Window
     // 实现没有前导0
     protected void FirstClcik(object sender, EventArgs e)
     {
-        int idx = textview1.Buffer.Text.Substring(0,textview1.Buffer.Text.Length - 1).LastIndexOf('\n');
-        if (idx == -1) idx = 0;
-        string t = textview1.Buffer.Text.Substring(idx);
-        if (t[0] == '\n') t = t.Substring(1); //满足第一个字符可以是负号
+        TextBuffer str = textview1.Buffer;
+        string t = textview1.Buffer.GetText(textview1.Buffer.GetIterAtLine(str.LineCount), str.EndIter, false);
         for (int i = 0; i < 10; ++i) {
             if(t == "0" + i) {
                 string tmp = textview1.Buffer.Text;
