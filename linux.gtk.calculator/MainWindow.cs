@@ -7,12 +7,30 @@ public partial class MainWindow : Gtk.Window
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
+        MyBind();
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
     {
         Application.Quit();
         a.RetVal = true;
+    }
+
+    void MyBind()
+    {
+        button9.Clicked += FirstClcik;
+        button8.Clicked += FirstClcik;
+        button7.Clicked += FirstClcik;
+        button6.Clicked += FirstClcik;
+        button5.Clicked += FirstClcik;
+        button4.Clicked += FirstClcik;
+        button3.Clicked += FirstClcik;
+        button2.Clicked += FirstClcik;
+        button1.Clicked += FirstClcik;
+        button.Clicked += FirstClcik;
+        textview1.SizeAllocated += ScrollToEnd;
+        var endIter = textview1.Buffer.EndIter;
+        textview1.Buffer.InsertWithTags(ref endIter, "0", getTag(15));
     }
 
     /* 模拟数字栈 */
@@ -137,12 +155,20 @@ public partial class MainWindow : Gtk.Window
             textview1.Buffer.InsertWithTags(ref iter, "= "+num[top_num - 1].ToString().Substring(0,maxL)+"\n------------------\n", getTag(25));
     }
 
-    // 实现没有前0
+    // 实现没有前导0
     protected void FirstClcik(object sender, EventArgs e)
     {
+        int idx = textview1.Buffer.Text.Substring(0,textview1.Buffer.Text.Length - 1).LastIndexOf('\n');
+        if (idx == -1) idx = 0;
+        string t = textview1.Buffer.Text.Substring(idx);
+        if (t[0] == '\n') t = t.Substring(1); //满足第一个字符可以是负号
         for (int i = 0; i < 10; ++i) {
-            if(textview1.Buffer.Text == "0" + i) {
+            if(t == "0" + i) {
+                string tmp = textview1.Buffer.Text;
+                tmp = tmp.Substring(0, tmp.Length - 2);
                 textview1.Buffer.Text = "";
+                var iter1 = textview1.Buffer.EndIter;
+                textview1.Buffer.InsertWithTags(ref iter1, tmp, getTag(15));
                 var iter = textview1.Buffer.EndIter;
                 textview1.Buffer.InsertWithTags(ref iter, i+"", getTag(15));
             }
@@ -309,7 +335,7 @@ public partial class MainWindow : Gtk.Window
     {
         string t = textview1.Buffer.Text;
         if (t == "") return;
-        char[] oper = { '+', '-', '*', '/' }; 
+        char[] oper = { '+', '-', '*', '/', '.'}; 
         bool judge = false;
 
         // 如果最后一个字符是操作符或者数字都可以删掉
