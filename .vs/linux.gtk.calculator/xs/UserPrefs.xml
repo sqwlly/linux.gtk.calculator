@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{BFB9E648-8956-4289-8F4E-806109361049}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="linux.gtk.calculator/gtk-gui/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="linux.gtk.calculator/MainWindow.cs">
     <Files>
       <File FileName="linux.gtk.calculator/Program.cs" Line="13" Column="1" />
       <File FileName="linux.gtk.calculator/gtk-gui/MainWindow.cs" Line="481" Column="55" />

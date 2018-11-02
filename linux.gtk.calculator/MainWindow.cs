@@ -137,6 +137,18 @@ public partial class MainWindow : Gtk.Window
             textview1.Buffer.InsertWithTags(ref iter, "= "+num[top_num - 1].ToString().Substring(0,maxL)+"\n------------------\n", getTag(25));
     }
 
+    // 实现没有前0
+    protected void FirstClcik(object sender, EventArgs e)
+    {
+        for (int i = 0; i < 10; ++i) {
+            if(textview1.Buffer.Text == "0" + i) {
+                textview1.Buffer.Text = "";
+                var iter = textview1.Buffer.EndIter;
+                textview1.Buffer.InsertWithTags(ref iter, i+"", getTag(15));
+            }
+        }
+    }
+
     //滚轮滚动到底部
     protected void ScrollToEnd(object sender, Gtk.SizeAllocatedArgs e)
     {
