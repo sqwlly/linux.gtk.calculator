@@ -7,7 +7,7 @@ public partial class MainWindow : Gtk.Window
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
-        MyBind();
+        MyDelegate();
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -16,7 +16,7 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
-    void MyBind()
+    void MyDelegate()
     {
         button9.Clicked += FirstClcik;
         button8.Clicked += FirstClcik;
@@ -96,15 +96,8 @@ public partial class MainWindow : Gtk.Window
 
         top_num = 2; top_op = 1;
         num[1] = 0;
-        int isMinus = 1;
         for (int i = 0; i < express.Length;)
         {
-            if (i == 0 && express[i] == '-')　//适用于一开始输入负数
-            {
-                isMinus = -1;
-                i++;
-                continue;
-            }
             //是数字就直接压进数字栈
             if (char.IsDigit(express[i]))
             {
@@ -126,10 +119,7 @@ public partial class MainWindow : Gtk.Window
                     }
                     decimals /= Math.Pow(10, digit);
                 }
-                num[top_num++] = (t + decimals) * isMinus;　//入数字栈
-                //负号用完再归1，防止影响后面结果(实际上这里并不是一个好的处理方法，如果想要
-                //可以一开始输入负数，可以考虑往初始数字栈中加一个0，初始操作符栈加一个加号)
-                if (isMinus == -1) isMinus = 1;
+                num[top_num++] = t + decimals;　//入数字栈
                 continue;
             }
             //当前操作符优先级高于栈顶的操作符就将其压进操作符栈
